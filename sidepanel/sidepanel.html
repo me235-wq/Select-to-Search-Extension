@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Google Lens</title>
+  <link rel="stylesheet" href="sidepanel.css">
+</head>
+<body data-view="empty">
+  <header>
+    <div class="brand"><img src="../icons/icon32.png" alt="" width="20" height="20"><span>Lens</span></div>
+    <div class="actions">
+      <button id="retry" class="icon" title="Search again" aria-label="Search again" hidden>
+        <svg viewBox="0 0 24 24"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></svg>
+      </button>
+      <button id="openTab" class="icon" title="Open in a tab" aria-label="Open in a tab" hidden>
+        <svg viewBox="0 0 24 24"><path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
+      </button>
+      <button id="close" class="icon" title="Close panel" aria-label="Close panel">
+        <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <div id="banner" hidden>Drag over the page to select. Esc cancels.</div>
+
+  <section id="empty" class="view">
+    <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+      <path d="M8 22V12a4 4 0 0 1 4-4h10M42 8h10a4 4 0 0 1 4 4v10M56 42v10a4 4 0 0 1-4 4H42M22 56H12a4 4 0 0 1-4-4V42"/>
+      <circle cx="32" cy="32" r="5" class="dot"/>
+    </svg>
+    <h1>Search what you see</h1>
+    <p>Select any part of the page to look it up with Google Lens.</p>
+    <div id="shortcut" class="shortcut"></div>
+  </section>
+
+  <section id="selecting" class="view">
+    <svg class="mark pulse" viewBox="0 0 64 64" aria-hidden="true">
+      <path d="M8 22V12a4 4 0 0 1 4-4h10M42 8h10a4 4 0 0 1 4 4v10M56 42v10a4 4 0 0 1-4 4H42M22 56H12a4 4 0 0 1-4-4V42"/>
+    </svg>
+    <h1>Drag over the page</h1>
+    <p>Draw a box around what you want to search. Press <kbd>Esc</kbd> to cancel.</p>
+  </section>
+
+  <section id="error" class="view">
+    <div class="alert" aria-hidden="true">!</div>
+    <h1 id="errTitle">Something went wrong</h1>
+    <p id="errMsg"></p>
+    <button id="back" class="btn" hidden>Back to last result</button>
+  </section>
+
+  <section id="result">
+    <div id="card">
+      <div id="thumbWrap"><img id="thumb" alt="Selected area"><span id="scan"></span></div>
+      <div class="meta">
+        <div class="row"><span id="cardTitle">Selected area</span><span id="dims"></span></div>
+        <div id="cardSub"><span id="dot"></span><span id="subText"></span></div>
+      </div>
+    </div>
+    <div id="stage">
+      <div id="progress"></div>
+      <div id="skeleton">
+        <div id="loader">
+          <div class="lens"><span class="ring"></span><span class="ring r2"></span><span class="core"></span></div>
+          <div id="loadText">Searching</div>
+        </div>
+        <div class="tiles"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+      <div id="frameHost"></div>
+    </div>
+  </section>
+
+  <script type="module" src="sidepanel.js"></script>
+</body>
+</html>
