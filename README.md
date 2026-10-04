@@ -4,8 +4,11 @@ Extension for Brave that let you use select to search feature of google.
 how to use:
 
 [1]: pause the video
+
 [2]: select the extension icon or press shortcut key "Ctrl+Shift+X"
+
 [3]: press "Esc" to cancel 
+
 [4]: select area and use it
 
 
